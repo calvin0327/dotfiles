@@ -58,7 +58,7 @@ local options = {
       "                            ",
     },
 
-    buttons = {   
+    buttons = {
       { txt = "  Open Session", keys = "pr", cmd = "SessionSearch" },
       { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
       { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },

@@ -22,16 +22,16 @@ return {
 
   auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
   auto_create = true,
-  suppressed_dirs = { '~/', '~/Downloads', '/' },
+  suppressed_dirs = { "~/", "~/Downloads", "/" },
 
   post_restore_cmds = {
     -- "someOtherVimCommand",
     function()
       -- Restore nvim-tree after a session is restored
-      local nvim_tree_api = require('nvim-tree.api')
+      local nvim_tree_api = require("nvim-tree.api")
       nvim_tree_api.tree.open()
       nvim_tree_api.tree.change_root(vim.fn.getcwd())
       nvim_tree_api.tree.reload()
-    end
+    end,
   },
 }
