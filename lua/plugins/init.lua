@@ -12,7 +12,7 @@ return {
     "nvchad/ui",
     lazy = false,
     config = function()
-      require "nvchad"
+      require("nvchad")
     end,
   },
 
@@ -24,7 +24,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     opts = function()
       dofile(vim.g.base46_cache .. "devicons")
-      return { override = require "nvchad.icons.devicons" }
+      return { override = require("nvchad.icons.devicons") }
     end,
   },
 
@@ -38,7 +38,7 @@ return {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "blankline")
 
-      local hooks = require "ibl.hooks"
+      local hooks = require("ibl.hooks")
       hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
       require("ibl").setup(opts)
 
@@ -51,7 +51,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
-      return require "configs.nvimtree"
+      return require("configs.nvimtree")
     end,
   },
 
@@ -78,16 +78,20 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "User FilePost",
     opts = function()
-      return require "configs.gitsigns"
+      return require("configs.gitsigns")
     end,
   },
   {
-     "sindrets/diffview.nvim",
-     event = "VeryLazy",
-     dependencies = "nvim-lua/plenary.nvim",
-     config = function()
-       require("configs.diffview")
-     end,
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>dc", "<cmd>DiffviewClose<cr>" },
+      { "<leader>do", "<cmd>DiffviewOpen<cr>" },
+    },
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("configs.diffview")
+    end,
   },
   {
     "isakbm/gitgraph.nvim",
@@ -101,18 +105,18 @@ return {
     lazy = true,
     cmd = "Neogit",
     keys = {
-      { '<leader>gg', ':Neogit<cr>', desc = 'neo[g]it' },
+      { "<leader>gg", ":Neogit<cr>", desc = "neo[g]it" },
     },
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed.
       "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
-      "echasnovski/mini.pick",         -- optional
+      "ibhagwan/fzf-lua", -- optional
+      "echasnovski/mini.pick", -- optional
     },
-    config = true
+    config = true,
   },
 
   -- lsp stuff
@@ -120,7 +124,7 @@ return {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
     opts = function()
-      return require "configs.mason"
+      return require("configs.mason")
     end,
   },
 
@@ -144,7 +148,7 @@ return {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
-          require "configs.luasnip"
+          require("configs.luasnip")
         end,
       },
 
@@ -159,7 +163,7 @@ return {
           require("nvim-autopairs").setup(opts)
 
           -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          local cmp_autopairs = require("nvim-autopairs.completion.cmp")
           require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
       },
@@ -174,7 +178,7 @@ return {
       },
     },
     opts = function()
-      return require "configs.cmp"
+      return require("configs.cmp")
     end,
   },
 
@@ -183,7 +187,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
     opts = function()
-      return require "configs.telescope"
+      return require("configs.telescope")
     end,
   },
 
@@ -193,7 +197,7 @@ return {
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     opts = function()
-      return require "configs.treesitter"
+      return require("configs.treesitter")
     end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
@@ -203,28 +207,28 @@ return {
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
+    opts = require("configs.conform"),
   },
 
   -- These are some examples, uncomment them if you want to see them work!
   {
-    'rmagatti/auto-session',
+    "rmagatti/auto-session",
     lazy = false,
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
     keys = {
       -- Will use Telescope if installed or a vim.ui.select picker otherwise
-      { '<leader>pr', '<cmd>SessionSearch<CR>',         desc = 'Session search' },
-      { '<leader>ps', '<cmd>SessionSave<CR>',           desc = 'Save session' },
-      { '<leader>pa', '<cmd>SessionToggleAutoSave<CR>', desc = 'Toggle autosave' },
-      { '<leader>pd', '<cmd>SessionDelete<CR>',         desc = 'Delete session' },
+      { "<leader>pr", "<cmd>SessionSearch<CR>", desc = "Session search" },
+      { "<leader>ps", "<cmd>SessionSave<CR>", desc = "Save session" },
+      { "<leader>pa", "<cmd>SessionToggleAutoSave<CR>", desc = "Toggle autosave" },
+      { "<leader>pd", "<cmd>SessionDelete<CR>", desc = "Delete session" },
     },
     opts = function()
       return require("configs.session")
     end,
     config = function(_, opts)
-      require('auto-session').setup(opts)
+      require("auto-session").setup(opts)
     end,
   },
 
@@ -239,7 +243,7 @@ return {
         "css",
         "go",
         "c",
-        "rust"
+        "rust",
       },
     },
   },
@@ -268,8 +272,8 @@ return {
 
   {
     "okuuva/auto-save.nvim",
-    version = '^1.0.0',                       -- see https://devhints.io/semver, alternatively use '*' to use the latest tagged release
-    cmd = "ASToggle",                         -- optional for lazy loading on command
+    version = "^1.0.0", -- see https://devhints.io/semver, alternatively use '*' to use the latest tagged release
+    cmd = "ASToggle", -- optional for lazy loading on command
     event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
     opts = {
       -- your config goes here
