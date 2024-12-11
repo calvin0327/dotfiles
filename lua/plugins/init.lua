@@ -219,9 +219,9 @@ return {
     },
     keys = {
       -- Will use Telescope if installed or a vim.ui.select picker otherwise
-      { "<leader>pr", "<cmd>SessionSearch<CR>", desc = "Session search" },
-      { "<leader>ps", "<cmd>SessionSave<CR>", desc = "Save session" },
-      { "<leader>pa", "<cmd>SessionToggleAutoSave<CR>", desc = "Toggle autosave" },
+      { "<leader>ps", "<cmd>SessionSearch<CR>", desc = "Session search" },
+      { "<leader>pd", "<cmd>SessionSave<CR>", desc = "Add session" },
+      -- { "<leader>pa", "<cmd>SessionToggleAutoSave<CR>", desc = "Toggle autosave" },
       { "<leader>pd", "<cmd>SessionDelete<CR>", desc = "Delete session" },
     },
     opts = function()
