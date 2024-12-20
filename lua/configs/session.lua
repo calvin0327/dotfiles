@@ -20,7 +20,8 @@ return {
     },
   },
 
-  auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
+  -- auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
+  auto_restore_last_session = true,
   auto_create = true,
   suppressed_dirs = { "~/", "~/Downloads", "/" },
 
