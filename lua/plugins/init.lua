@@ -65,14 +65,6 @@ return {
     end,
   },
 
-  -- formatting!
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = { lua = { "stylua" } },
-    },
-  },
-
   -- git stuff
   {
     "lewis6991/gitsigns.nvim",

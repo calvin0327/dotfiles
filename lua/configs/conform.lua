@@ -6,6 +6,7 @@ local options = {
     html = { "prettier" },
     sh = { "shfmt" },
     go = { "gofumpt", "goimports", "gomodifytags", "gotests" },
+    c = { "clang-format" },
   },
 
   -- format_on_save = {
