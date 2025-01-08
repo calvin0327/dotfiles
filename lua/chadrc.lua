@@ -42,7 +42,7 @@ local options = {
   },
 
   nvdash = {
-    load_on_startup = false,
+    load_on_startup = true,
     header = {
       "                            ",
       "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
@@ -59,7 +59,7 @@ local options = {
     },
 
     buttons = {
-      { txt = "  Open Session", keys = "pr", cmd = "SessionSearch" },
+      { txt = "  Open Session", keys = "ps", cmd = "SessionSearch" },
       { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
       { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
       { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
